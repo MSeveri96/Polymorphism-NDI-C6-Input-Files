@@ -2,4 +2,4 @@
 
 This repository contains all the input files used in "TITLE", DOI.
 
-abc
+The files are organized in the following manner:
