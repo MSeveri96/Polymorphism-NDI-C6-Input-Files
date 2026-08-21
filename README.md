@@ -7,5 +7,6 @@ The files are organized in the following manner:
 ## Pristine Alpha and Pristine Gamma
 
 The directories containing the files for the simulations of pristine alpha and gamma, are "pristine_alpha" and "pristine_gamma". These directories contain the files:
--)a
--)b
+
+-ndi_c6_alpha/gamma_single_molecule.data = this is the lammps data file of a single molecule of the alpha/gamma phase, 
+-
