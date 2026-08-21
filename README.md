@@ -13,3 +13,11 @@ The directories containing the files for the simulations of pristine alpha and g
 - system.lt = this file contains the instructions for moltemplate. It describes that the single molecule should be translated 5 times along each crystallographic axis. It also contains the definition of the supercell.
 - system.pristine_alpha/gamma.data and system.pristine_alpha/gamma.in.settings = these describe the actual simulation box, with all the atomic positions and all the parameters of the force field. These are read by LAMMPS.
 - input_pristine_alpha.inp = the actual MD input, it already contains the equilibration-NVT-NPT sequence. In the case of gamma, we report the input for the simulation at 327 K, to reproduce the simulation at 450 K it is sufficient to change the temperature of the thermostat, all the other lines remain unchanged (it is advisable to change the name of the dump files as well). 
+
+## Heating of the Alpha Phase to 600 K
+
+## Equilibration at 590 K
+
+## Cooling at 300 K
+
+## Equilibration at 300 K
