@@ -1,0 +1,15 @@
+import "ndi_c6_h_optimized_to_modify.lt"  # <- This imports the file defining the single molecule
+
+ndi_c6_alpha  = new ndi_c6_alpha [5].move(4.898, 0.0, 0.0) # a vector
+                 [5].move(-0.51871368 , 8.26774408 , 0.    ) # b vector 
+                 [5].move(-2.04644949, -1.73288138, 14.27430358) # c vector
+# Periodic boundary conditions:
+write_once("Data Boundary") {
+  0.0 24.49 xlo xhi
+  0.0 41.33872038 ylo yhi
+  0.0 71.37151788 zlo zhi
+  -2.59356839 -10.23224746 -8.66440688 xy xz yz
+}
+
+
+

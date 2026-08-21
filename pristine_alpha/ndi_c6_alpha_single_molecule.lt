@@ -1,0 +1,574 @@
+ndi_c6_alpha {
+
+  ### LAMMPS commands for initialization
+  ### (These can be overridden later.)
+
+
+  write_once("In Init") {
+    atom_style full
+    units real
+    pair_style lj/cut/coul/long 9.0 11.0
+    bond_style harmonic
+    angle_style harmonic
+    dihedral_style opls
+    improper_style harmonic
+    special_bonds lj/coul 0.0 0.0 0.5
+    pair_modify mix geometric
+    kspace_style pppm 0.0001
+  }
+
+  write_once("In Settings") {
+    pair_coeff @atom:CA @atom:CA 0.0619 3.4651
+    pair_coeff @atom:CB @atom:CB 0.0619 3.4291
+    pair_coeff @atom:CIN @atom:CIN 0.0619 3.4325
+    pair_coeff @atom:CIO @atom:CIO 0.0619 3.1977
+    pair_coeff @atom:CL @atom:CL 0.0619 3.4864
+    pair_coeff @atom:CT @atom:CT 0.0619 3.5242
+    pair_coeff @atom:H @atom:H 0.036 2.3139
+    pair_coeff @atom:HA @atom:HA 0.036 2.2171
+    pair_coeff @atom:N @atom:N 0.1006 3.0735
+    pair_coeff @atom:O @atom:O 0.1001 2.965
+  }
+
+  write_once("In Settings") {
+    bond_coeff @bond:type1 469.0 1.40
+    bond_coeff @bond:type2 469.0 1.404
+    bond_coeff @bond:type3 400.0 1.490
+    bond_coeff @bond:type4 367.0 1.080
+    bond_coeff @bond:type5 520.0 1.370
+    bond_coeff @bond:type6 268.0 1.529
+    bond_coeff @bond:type7 340.0 1.09
+    bond_coeff @bond:type8 337.0 1.449
+    bond_coeff @bond:type9 490.0 1.335
+    bond_coeff @bond:type10 570.0 1.229
+    bond_coeff @bond:type11 268.0 1.529
+    bond_coeff @bond:type12 268.0 1.529
+    bond_coeff @bond:type13 340.0 1.09
+    bond_coeff @bond:type14 340.0 1.09
+  }
+
+  write_once("In Settings") {
+    angle_coeff @angle:type1 63.0 120.0
+    angle_coeff @angle:type2 63.0 120.0
+    angle_coeff @angle:type3 85.0 120.0
+    angle_coeff @angle:type4 35.0 120.0
+    angle_coeff @angle:type5 85.0 134.9
+    angle_coeff @angle:type6 85.0 117.3
+    angle_coeff @angle:type7 70.0 115.5
+    angle_coeff @angle:type8 80.0 120.4
+    angle_coeff @angle:type9 85.0 120.0
+    angle_coeff @angle:type10 58.35 112.7
+    angle_coeff @angle:type11 37.5 110.7
+    angle_coeff @angle:type12 50.0 121.9
+    angle_coeff @angle:type13 70.0 126.4
+    angle_coeff @angle:type14 37.5 110.7
+    angle_coeff @angle:type15 80.0 109.7
+    angle_coeff @angle:type16 58.35 112.7
+    angle_coeff @angle:type17 58.35 112.7
+    angle_coeff @angle:type18 37.5 110.7
+    angle_coeff @angle:type19 37.5 110.7
+    angle_coeff @angle:type20 37.5 110.7
+    angle_coeff @angle:type21 33.0 107.8
+    angle_coeff @angle:type22 35.0 109.5
+    angle_coeff @angle:type23 33.0 107.8
+    angle_coeff @angle:type24 33.0 107.8
+    angle_coeff @angle:type25 80.0 122.9
+  }
+
+  write_once("In Settings") {
+    dihedral_coeff @dihedral:type1 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type2 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type3 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type4 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type5 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type6 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type7 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type8 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type9 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type10 2.300 6.089 0.0 0.0
+    dihedral_coeff @dihedral:type11 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type12 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type13 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type14 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type15 0.850 -0.200 0.200 0.0
+    dihedral_coeff @dihedral:type16 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type17 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type18 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type19 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type20 -0.682 0.130 0.338 0.0
+    dihedral_coeff @dihedral:type21 0.850 -0.200 0.200 0.0
+    dihedral_coeff @dihedral:type22 0.850 -0.200 0.200 0.0
+    dihedral_coeff @dihedral:type23 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type24 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type25 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type26 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type27 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type28 0.0 0.0 0.0 0.0
+    dihedral_coeff @dihedral:type29 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type30 0.000 0.000 0.300 0.0
+    dihedral_coeff @dihedral:type31 0.0 100.0 0.0 0.0
+    dihedral_coeff @dihedral:type32 0.884 0.897 0.880 0.0
+    dihedral_coeff @dihedral:type33 0.000 0.000 0.464 0.0
+    dihedral_coeff @dihedral:type34 0.000 6.089 0.000 0.0
+    dihedral_coeff @dihedral:type35 0.0 100.0 0.0 0.0
+  }
+
+
+  ### DATA sections
+
+
+  write_once("Data Masses") {
+    @atom:CA 12.010700
+    @atom:CB 12.010700
+    @atom:CIN 12.010700
+    @atom:CIO 12.010700
+    @atom:CL 12.010700
+    @atom:CT 12.010700
+    @atom:H 1.007940
+    @atom:HA 1.007940
+    @atom:N 14.006700
+    @atom:O 15.999400
+  }
+
+  write("Data Atoms") {
+    $atom:CA_1 $mol:m1 @atom:CA -0.067484 0.984000 10.195000 0.597000
+    $atom:CA_2 $mol:m1 @atom:CA -0.067434 1.308000 9.153000 1.475000
+    $atom:CA_3 $mol:m1 @atom:CA -0.079003 -0.005000 10.028000 -0.356000
+    $atom:CA_4 $mol:m1 @atom:CA -0.069162 0.666000 7.943000 1.408000
+    $atom:CA_5 $mol:m1 @atom:CA -0.072055 -1.703000 8.592000 -1.408000
+    $atom:CA_6 $mol:m1 @atom:CA -0.077113 -1.032000 6.507000 0.356000
+    $atom:CA_7 $mol:m1 @atom:CA -0.069688 -2.345000 7.383000 -1.475000
+    $atom:CA_8 $mol:m1 @atom:CA -0.065502 -2.022000 6.341000 -0.597000
+    $atom:CB_1 $mol:m1 @atom:CB 0.027249 -0.686000 8.797000 -0.439000
+    $atom:CB_2 $mol:m1 @atom:CB 0.025119 -0.351000 7.738000 0.439000
+    $atom:HA_1 $mol:m1 @atom:HA 0.128276 -3.124000 7.253000 -2.217000
+    $atom:HA_2 $mol:m1 @atom:HA 0.129731 -2.539000 5.391000 -0.649000
+    $atom:HA_3 $mol:m1 @atom:HA 0.130092 1.502000 11.144000 0.649000
+    $atom:HA_4 $mol:m1 @atom:HA 0.128038 2.086000 9.283000 2.217000
+    $atom:CIO_1 $mol:m1 @atom:CIO 0.505756 -0.334000 11.122000 -1.283000
+    $atom:CIO_2 $mol:m1 @atom:CIO 0.502398 -2.082000 9.708000 -2.303000
+    $atom:CIO_3 $mol:m1 @atom:CIO 0.505744 1.045000 6.827000 2.303000
+    $atom:CIO_4 $mol:m1 @atom:CIO 0.512423 -0.704000 5.414000 1.283000
+    $atom:O_1 $mol:m1 @atom:O -0.483048 0.260000 12.183000 -1.280000
+    $atom:O_2 $mol:m1 @atom:O -0.486526 -2.999000 9.606000 -3.102000
+    $atom:O_3 $mol:m1 @atom:O -0.486663 1.961000 6.929000 3.102000
+    $atom:O_4 $mol:m1 @atom:O -0.484395 -1.297000 4.352000 1.280000
+    $atom:N_1 $mol:m1 @atom:N -0.228541 -1.373000 10.900000 -2.193000
+    $atom:N_2 $mol:m1 @atom:N -0.244888 0.335000 5.635000 2.193000
+    $atom:CIN_1 $mol:m1 @atom:CIN -0.029162 -1.710000 12.005000 -3.120000
+    $atom:CIN_2 $mol:m1 @atom:CIN -0.018781 0.672000 4.530000 3.120000
+    $atom:CL_1 $mol:m1 @atom:CL -0.160662 -0.951000 11.941000 -4.410000
+    $atom:CL_2 $mol:m1 @atom:CL -0.132857 -1.203000 13.127000 -5.319000
+    $atom:CL_3 $mol:m1 @atom:CL -0.154075 -0.698000 14.388000 -4.827000
+    $atom:CL_4 $mol:m1 @atom:CL -0.079163 -0.969000 15.574000 -6.119000
+    $atom:CL_5 $mol:m1 @atom:CL -0.162510 -0.086000 4.594000 4.410000
+    $atom:CL_6 $mol:m1 @atom:CL -0.129408 0.165000 3.409000 5.319000
+    $atom:CL_7 $mol:m1 @atom:CL -0.155603 -0.339000 2.147000 4.827000
+    $atom:CL_8 $mol:m1 @atom:CL -0.077280 -0.068000 0.961000 6.119000
+    $atom:CT_1 $mol:m1 @atom:CT -0.252701 -1.019000 16.364000 -5.535000
+    $atom:CT_2 $mol:m1 @atom:CT -0.254598 -0.019000 0.172000 5.535000
+    $atom:H_1 $mol:m1 @atom:H 0.091254 -1.496000 12.925000 -2.579000
+    $atom:H_2 $mol:m1 @atom:H 0.091836 -2.782000 11.941000 -3.300000
+    $atom:H_3 $mol:m1 @atom:H 0.080208 0.120000 11.886000 -4.186000
+    $atom:H_4 $mol:m1 @atom:H 0.081812 -1.217000 11.011000 -4.923000
+    $atom:H_5 $mol:m1 @atom:H 0.072845 -2.281000 13.200000 -5.512000
+    $atom:H_6 $mol:m1 @atom:H 0.079423 -0.744000 12.903000 -6.288000
+    $atom:H_7 $mol:m1 @atom:H 0.081658 -1.231000 14.795000 -3.972000
+    $atom:H_8 $mol:m1 @atom:H 0.082481 0.378000 14.403000 -4.641000
+    $atom:H_9 $mol:m1 @atom:H 0.079690 -1.838000 15.193000 -6.684000
+    $atom:H_10 $mol:m1 @atom:H 0.077487 -0.118000 15.396000 -6.802000
+    $atom:H_11 $mol:m1 @atom:H 0.074879 -1.862000 16.476999 -4.816000
+    $atom:H_12 $mol:m1 @atom:H 0.024751 -1.141000 17.384001 -6.050000
+    $atom:H_13 $mol:m1 @atom:H 0.081064 -0.158000 16.639000 -4.884000
+    $atom:H_14 $mol:m1 @atom:H 0.087584 0.459000 3.611000 2.579000
+    $atom:H_15 $mol:m1 @atom:H 0.090871 1.745000 4.594000 3.300000
+    $atom:H_16 $mol:m1 @atom:H 0.082181 0.179000 5.524000 4.923000
+    $atom:H_17 $mol:m1 @atom:H 0.080492 -1.157000 4.649000 4.186000
+    $atom:H_18 $mol:m1 @atom:H 0.071830 1.243000 3.336000 5.512000
+    $atom:H_19 $mol:m1 @atom:H 0.078204 -0.293000 3.633000 6.288000
+    $atom:H_20 $mol:m1 @atom:H 0.081595 0.194000 1.741000 3.972000
+    $atom:H_21 $mol:m1 @atom:H 0.083444 -1.415000 2.133000 4.641000
+    $atom:H_22 $mol:m1 @atom:H 0.079493 0.800000 1.342000 6.684000
+    $atom:H_23 $mol:m1 @atom:H 0.077234 -0.919000 1.140000 6.802000
+    $atom:H_24 $mol:m1 @atom:H 0.074572 0.824000 0.058000 4.816000
+    $atom:H_25 $mol:m1 @atom:H 0.081487 -0.879000 -0.104000 4.884000
+    $atom:H_26 $mol:m1 @atom:H 0.025101 0.104000 -0.848000 6.050000
+  }
+
+  write("Data Bonds") {
+    $bond:id1 @bond:type4 $atom:CA_1 $atom:HA_3
+    $bond:id2 @bond:type1 $atom:CA_1 $atom:CA_2
+    $bond:id3 @bond:type1 $atom:CA_1 $atom:CA_3
+    $bond:id4 @bond:type4 $atom:CA_2 $atom:HA_4
+    $bond:id5 @bond:type1 $atom:CA_2 $atom:CA_4
+    $bond:id6 @bond:type2 $atom:CA_3 $atom:CB_1
+    $bond:id7 @bond:type3 $atom:CA_3 $atom:CIO_1
+    $bond:id8 @bond:type2 $atom:CA_4 $atom:CB_2
+    $bond:id9 @bond:type3 $atom:CA_4 $atom:CIO_3
+    $bond:id10 @bond:type1 $atom:CA_5 $atom:CA_7
+    $bond:id11 @bond:type3 $atom:CA_5 $atom:CIO_2
+    $bond:id12 @bond:type2 $atom:CA_5 $atom:CB_1
+    $bond:id13 @bond:type3 $atom:CA_6 $atom:CIO_4
+    $bond:id14 @bond:type2 $atom:CA_6 $atom:CB_2
+    $bond:id15 @bond:type1 $atom:CA_6 $atom:CA_8
+    $bond:id16 @bond:type4 $atom:CA_7 $atom:HA_1
+    $bond:id17 @bond:type1 $atom:CA_7 $atom:CA_8
+    $bond:id18 @bond:type4 $atom:CA_8 $atom:HA_2
+    $bond:id19 @bond:type5 $atom:CB_1 $atom:CB_2
+    $bond:id20 @bond:type10 $atom:CIO_1 $atom:O_1
+    $bond:id21 @bond:type9 $atom:CIO_1 $atom:N_1
+    $bond:id22 @bond:type10 $atom:CIO_2 $atom:O_2
+    $bond:id23 @bond:type9 $atom:CIO_2 $atom:N_1
+    $bond:id24 @bond:type10 $atom:CIO_3 $atom:O_3
+    $bond:id25 @bond:type9 $atom:CIO_3 $atom:N_2
+    $bond:id26 @bond:type9 $atom:CIO_4 $atom:N_2
+    $bond:id27 @bond:type10 $atom:CIO_4 $atom:O_4
+    $bond:id28 @bond:type8 $atom:N_1 $atom:CIN_1
+    $bond:id29 @bond:type8 $atom:N_2 $atom:CIN_2
+    $bond:id30 @bond:type7 $atom:CIN_1 $atom:H_2
+    $bond:id31 @bond:type6 $atom:CIN_1 $atom:CL_1
+    $bond:id32 @bond:type7 $atom:CIN_1 $atom:H_1
+    $bond:id33 @bond:type7 $atom:CIN_2 $atom:H_14
+    $bond:id34 @bond:type7 $atom:CIN_2 $atom:H_15
+    $bond:id35 @bond:type6 $atom:CIN_2 $atom:CL_5
+    $bond:id36 @bond:type11 $atom:CL_1 $atom:CL_2
+    $bond:id37 @bond:type13 $atom:CL_1 $atom:H_4
+    $bond:id38 @bond:type13 $atom:CL_1 $atom:H_3
+    $bond:id39 @bond:type13 $atom:CL_2 $atom:H_5
+    $bond:id40 @bond:type13 $atom:CL_2 $atom:H_6
+    $bond:id41 @bond:type11 $atom:CL_2 $atom:CL_3
+    $bond:id42 @bond:type11 $atom:CL_3 $atom:CL_4
+    $bond:id43 @bond:type13 $atom:CL_3 $atom:H_8
+    $bond:id44 @bond:type13 $atom:CL_3 $atom:H_7
+    $bond:id45 @bond:type12 $atom:CL_4 $atom:CT_1
+    $bond:id46 @bond:type13 $atom:CL_4 $atom:H_10
+    $bond:id47 @bond:type13 $atom:CL_4 $atom:H_9
+    $bond:id48 @bond:type11 $atom:CL_5 $atom:CL_6
+    $bond:id49 @bond:type13 $atom:CL_5 $atom:H_16
+    $bond:id50 @bond:type13 $atom:CL_5 $atom:H_17
+    $bond:id51 @bond:type13 $atom:CL_6 $atom:H_19
+    $bond:id52 @bond:type13 $atom:CL_6 $atom:H_18
+    $bond:id53 @bond:type11 $atom:CL_6 $atom:CL_7
+    $bond:id54 @bond:type13 $atom:CL_7 $atom:H_20
+    $bond:id55 @bond:type11 $atom:CL_7 $atom:CL_8
+    $bond:id56 @bond:type13 $atom:CL_7 $atom:H_21
+    $bond:id57 @bond:type12 $atom:CL_8 $atom:CT_2
+    $bond:id58 @bond:type13 $atom:CL_8 $atom:H_23
+    $bond:id59 @bond:type13 $atom:CL_8 $atom:H_22
+    $bond:id60 @bond:type14 $atom:CT_1 $atom:H_13
+    $bond:id61 @bond:type14 $atom:CT_1 $atom:H_11
+    $bond:id62 @bond:type14 $atom:CT_1 $atom:H_12
+    $bond:id63 @bond:type14 $atom:CT_2 $atom:H_24
+    $bond:id64 @bond:type14 $atom:CT_2 $atom:H_25
+    $bond:id65 @bond:type14 $atom:CT_2 $atom:H_26
+  }
+
+  write("Data Angles") {
+    $angle:id1 @angle:type4 $atom:CA_2 $atom:CA_1 $atom:HA_3
+    $angle:id2 @angle:type4 $atom:CA_3 $atom:CA_1 $atom:HA_3
+    $angle:id3 @angle:type1 $atom:CA_2 $atom:CA_1 $atom:CA_3
+    $angle:id4 @angle:type4 $atom:CA_1 $atom:CA_2 $atom:HA_4
+    $angle:id5 @angle:type1 $atom:CA_1 $atom:CA_2 $atom:CA_4
+    $angle:id6 @angle:type4 $atom:CA_4 $atom:CA_2 $atom:HA_4
+    $angle:id7 @angle:type2 $atom:CA_1 $atom:CA_3 $atom:CB_1
+    $angle:id8 @angle:type3 $atom:CA_1 $atom:CA_3 $atom:CIO_1
+    $angle:id9 @angle:type9 $atom:CB_1 $atom:CA_3 $atom:CIO_1
+    $angle:id10 @angle:type2 $atom:CA_2 $atom:CA_4 $atom:CB_2
+    $angle:id11 @angle:type3 $atom:CA_2 $atom:CA_4 $atom:CIO_3
+    $angle:id12 @angle:type9 $atom:CB_2 $atom:CA_4 $atom:CIO_3
+    $angle:id13 @angle:type3 $atom:CA_7 $atom:CA_5 $atom:CIO_2
+    $angle:id14 @angle:type2 $atom:CA_7 $atom:CA_5 $atom:CB_1
+    $angle:id15 @angle:type9 $atom:CB_1 $atom:CA_5 $atom:CIO_2
+    $angle:id16 @angle:type9 $atom:CB_2 $atom:CA_6 $atom:CIO_4
+    $angle:id17 @angle:type3 $atom:CA_8 $atom:CA_6 $atom:CIO_4
+    $angle:id18 @angle:type2 $atom:CA_8 $atom:CA_6 $atom:CB_2
+    $angle:id19 @angle:type4 $atom:CA_5 $atom:CA_7 $atom:HA_1
+    $angle:id20 @angle:type1 $atom:CA_5 $atom:CA_7 $atom:CA_8
+    $angle:id21 @angle:type4 $atom:CA_8 $atom:CA_7 $atom:HA_1
+    $angle:id22 @angle:type1 $atom:CA_6 $atom:CA_8 $atom:CA_7
+    $angle:id23 @angle:type4 $atom:CA_6 $atom:CA_8 $atom:HA_2
+    $angle:id24 @angle:type4 $atom:CA_7 $atom:CA_8 $atom:HA_2
+    $angle:id25 @angle:type5 $atom:CA_3 $atom:CB_1 $atom:CA_5
+    $angle:id26 @angle:type6 $atom:CA_3 $atom:CB_1 $atom:CB_2
+    $angle:id27 @angle:type6 $atom:CA_5 $atom:CB_1 $atom:CB_2
+    $angle:id28 @angle:type5 $atom:CA_4 $atom:CB_2 $atom:CA_6
+    $angle:id29 @angle:type6 $atom:CA_4 $atom:CB_2 $atom:CB_1
+    $angle:id30 @angle:type6 $atom:CA_6 $atom:CB_2 $atom:CB_1
+    $angle:id31 @angle:type8 $atom:CA_3 $atom:CIO_1 $atom:O_1
+    $angle:id32 @angle:type7 $atom:CA_3 $atom:CIO_1 $atom:N_1
+    $angle:id33 @angle:type25 $atom:O_1 $atom:CIO_1 $atom:N_1
+    $angle:id34 @angle:type8 $atom:CA_5 $atom:CIO_2 $atom:O_2
+    $angle:id35 @angle:type7 $atom:CA_5 $atom:CIO_2 $atom:N_1
+    $angle:id36 @angle:type25 $atom:O_2 $atom:CIO_2 $atom:N_1
+    $angle:id37 @angle:type8 $atom:CA_4 $atom:CIO_3 $atom:O_3
+    $angle:id38 @angle:type7 $atom:CA_4 $atom:CIO_3 $atom:N_2
+    $angle:id39 @angle:type25 $atom:O_3 $atom:CIO_3 $atom:N_2
+    $angle:id40 @angle:type7 $atom:CA_6 $atom:CIO_4 $atom:N_2
+    $angle:id41 @angle:type8 $atom:CA_6 $atom:CIO_4 $atom:O_4
+    $angle:id42 @angle:type25 $atom:O_4 $atom:CIO_4 $atom:N_2
+    $angle:id43 @angle:type13 $atom:CIO_1 $atom:N_1 $atom:CIO_2
+    $angle:id44 @angle:type12 $atom:CIO_1 $atom:N_1 $atom:CIN_1
+    $angle:id45 @angle:type12 $atom:CIO_2 $atom:N_1 $atom:CIN_1
+    $angle:id46 @angle:type13 $atom:CIO_3 $atom:N_2 $atom:CIO_4
+    $angle:id47 @angle:type12 $atom:CIO_3 $atom:N_2 $atom:CIN_2
+    $angle:id48 @angle:type12 $atom:CIO_4 $atom:N_2 $atom:CIN_2
+    $angle:id49 @angle:type22 $atom:N_1 $atom:CIN_1 $atom:H_2
+    $angle:id50 @angle:type15 $atom:N_1 $atom:CIN_1 $atom:CL_1
+    $angle:id51 @angle:type22 $atom:N_1 $atom:CIN_1 $atom:H_1
+    $angle:id52 @angle:type14 $atom:CL_1 $atom:CIN_1 $atom:H_2
+    $angle:id53 @angle:type21 $atom:H_1 $atom:CIN_1 $atom:H_2
+    $angle:id54 @angle:type14 $atom:CL_1 $atom:CIN_1 $atom:H_1
+    $angle:id55 @angle:type22 $atom:N_2 $atom:CIN_2 $atom:H_14
+    $angle:id56 @angle:type22 $atom:N_2 $atom:CIN_2 $atom:H_15
+    $angle:id57 @angle:type15 $atom:N_2 $atom:CIN_2 $atom:CL_5
+    $angle:id58 @angle:type21 $atom:H_14 $atom:CIN_2 $atom:H_15
+    $angle:id59 @angle:type14 $atom:CL_5 $atom:CIN_2 $atom:H_14
+    $angle:id60 @angle:type14 $atom:CL_5 $atom:CIN_2 $atom:H_15
+    $angle:id61 @angle:type10 $atom:CIN_1 $atom:CL_1 $atom:CL_2
+    $angle:id62 @angle:type11 $atom:CIN_1 $atom:CL_1 $atom:H_4
+    $angle:id63 @angle:type11 $atom:CIN_1 $atom:CL_1 $atom:H_3
+    $angle:id64 @angle:type18 $atom:CL_2 $atom:CL_1 $atom:H_4
+    $angle:id65 @angle:type18 $atom:CL_2 $atom:CL_1 $atom:H_3
+    $angle:id66 @angle:type23 $atom:H_3 $atom:CL_1 $atom:H_4
+    $angle:id67 @angle:type18 $atom:CL_1 $atom:CL_2 $atom:H_5
+    $angle:id68 @angle:type18 $atom:CL_1 $atom:CL_2 $atom:H_6
+    $angle:id69 @angle:type16 $atom:CL_1 $atom:CL_2 $atom:CL_3
+    $angle:id70 @angle:type23 $atom:H_5 $atom:CL_2 $atom:H_6
+    $angle:id71 @angle:type18 $atom:CL_3 $atom:CL_2 $atom:H_5
+    $angle:id72 @angle:type18 $atom:CL_3 $atom:CL_2 $atom:H_6
+    $angle:id73 @angle:type16 $atom:CL_2 $atom:CL_3 $atom:CL_4
+    $angle:id74 @angle:type18 $atom:CL_2 $atom:CL_3 $atom:H_8
+    $angle:id75 @angle:type18 $atom:CL_2 $atom:CL_3 $atom:H_7
+    $angle:id76 @angle:type18 $atom:CL_4 $atom:CL_3 $atom:H_8
+    $angle:id77 @angle:type18 $atom:CL_4 $atom:CL_3 $atom:H_7
+    $angle:id78 @angle:type23 $atom:H_7 $atom:CL_3 $atom:H_8
+    $angle:id79 @angle:type17 $atom:CL_3 $atom:CL_4 $atom:CT_1
+    $angle:id80 @angle:type18 $atom:CL_3 $atom:CL_4 $atom:H_10
+    $angle:id81 @angle:type18 $atom:CL_3 $atom:CL_4 $atom:H_9
+    $angle:id82 @angle:type20 $atom:CT_1 $atom:CL_4 $atom:H_10
+    $angle:id83 @angle:type20 $atom:CT_1 $atom:CL_4 $atom:H_9
+    $angle:id84 @angle:type23 $atom:H_9 $atom:CL_4 $atom:H_10
+    $angle:id85 @angle:type10 $atom:CIN_2 $atom:CL_5 $atom:CL_6
+    $angle:id86 @angle:type11 $atom:CIN_2 $atom:CL_5 $atom:H_16
+    $angle:id87 @angle:type11 $atom:CIN_2 $atom:CL_5 $atom:H_17
+    $angle:id88 @angle:type18 $atom:CL_6 $atom:CL_5 $atom:H_16
+    $angle:id89 @angle:type18 $atom:CL_6 $atom:CL_5 $atom:H_17
+    $angle:id90 @angle:type23 $atom:H_16 $atom:CL_5 $atom:H_17
+    $angle:id91 @angle:type18 $atom:CL_5 $atom:CL_6 $atom:H_19
+    $angle:id92 @angle:type18 $atom:CL_5 $atom:CL_6 $atom:H_18
+    $angle:id93 @angle:type16 $atom:CL_5 $atom:CL_6 $atom:CL_7
+    $angle:id94 @angle:type23 $atom:H_18 $atom:CL_6 $atom:H_19
+    $angle:id95 @angle:type18 $atom:CL_7 $atom:CL_6 $atom:H_19
+    $angle:id96 @angle:type18 $atom:CL_7 $atom:CL_6 $atom:H_18
+    $angle:id97 @angle:type18 $atom:CL_6 $atom:CL_7 $atom:H_20
+    $angle:id98 @angle:type16 $atom:CL_6 $atom:CL_7 $atom:CL_8
+    $angle:id99 @angle:type18 $atom:CL_6 $atom:CL_7 $atom:H_21
+    $angle:id100 @angle:type18 $atom:CL_8 $atom:CL_7 $atom:H_20
+    $angle:id101 @angle:type23 $atom:H_20 $atom:CL_7 $atom:H_21
+    $angle:id102 @angle:type18 $atom:CL_8 $atom:CL_7 $atom:H_21
+    $angle:id103 @angle:type17 $atom:CL_7 $atom:CL_8 $atom:CT_2
+    $angle:id104 @angle:type18 $atom:CL_7 $atom:CL_8 $atom:H_23
+    $angle:id105 @angle:type18 $atom:CL_7 $atom:CL_8 $atom:H_22
+    $angle:id106 @angle:type20 $atom:CT_2 $atom:CL_8 $atom:H_23
+    $angle:id107 @angle:type20 $atom:CT_2 $atom:CL_8 $atom:H_22
+    $angle:id108 @angle:type23 $atom:H_22 $atom:CL_8 $atom:H_23
+    $angle:id109 @angle:type19 $atom:CL_4 $atom:CT_1 $atom:H_13
+    $angle:id110 @angle:type19 $atom:CL_4 $atom:CT_1 $atom:H_11
+    $angle:id111 @angle:type19 $atom:CL_4 $atom:CT_1 $atom:H_12
+    $angle:id112 @angle:type24 $atom:H_11 $atom:CT_1 $atom:H_13
+    $angle:id113 @angle:type24 $atom:H_12 $atom:CT_1 $atom:H_13
+    $angle:id114 @angle:type24 $atom:H_11 $atom:CT_1 $atom:H_12
+    $angle:id115 @angle:type19 $atom:CL_8 $atom:CT_2 $atom:H_24
+    $angle:id116 @angle:type19 $atom:CL_8 $atom:CT_2 $atom:H_25
+    $angle:id117 @angle:type19 $atom:CL_8 $atom:CT_2 $atom:H_26
+    $angle:id118 @angle:type24 $atom:H_24 $atom:CT_2 $atom:H_25
+    $angle:id119 @angle:type24 $atom:H_24 $atom:CT_2 $atom:H_26
+    $angle:id120 @angle:type24 $atom:H_25 $atom:CT_2 $atom:H_26
+  }
+
+  write("Data Dihedrals") {
+    $dihedral:id1 @dihedral:type31 $atom:HA_3 $atom:CA_1 $atom:CA_2 $atom:HA_4
+    $dihedral:id2 @dihedral:type4 $atom:HA_3 $atom:CA_1 $atom:CA_2 $atom:CA_4
+    $dihedral:id3 @dihedral:type4 $atom:CA_3 $atom:CA_1 $atom:CA_2 $atom:HA_4
+    $dihedral:id4 @dihedral:type1 $atom:CA_3 $atom:CA_1 $atom:CA_2 $atom:CA_4
+    $dihedral:id5 @dihedral:type12 $atom:HA_3 $atom:CA_1 $atom:CA_3 $atom:CB_1
+    $dihedral:id6 @dihedral:type17 $atom:HA_3 $atom:CA_1 $atom:CA_3 $atom:CIO_1
+    $dihedral:id7 @dihedral:type2 $atom:CA_2 $atom:CA_1 $atom:CA_3 $atom:CB_1
+    $dihedral:id8 @dihedral:type3 $atom:CA_2 $atom:CA_1 $atom:CA_3 $atom:CIO_1
+    $dihedral:id9 @dihedral:type2 $atom:CA_1 $atom:CA_2 $atom:CA_4 $atom:CB_2
+    $dihedral:id10 @dihedral:type3 $atom:CA_1 $atom:CA_2 $atom:CA_4 $atom:CIO_3
+    $dihedral:id11 @dihedral:type12 $atom:HA_4 $atom:CA_2 $atom:CA_4 $atom:CB_2
+    $dihedral:id12 @dihedral:type17 $atom:HA_4 $atom:CA_2 $atom:CA_4 $atom:CIO_3
+    $dihedral:id13 @dihedral:type5 $atom:CA_1 $atom:CA_3 $atom:CB_1 $atom:CA_5
+    $dihedral:id14 @dihedral:type6 $atom:CA_1 $atom:CA_3 $atom:CB_1 $atom:CB_2
+    $dihedral:id15 @dihedral:type18 $atom:CIO_1 $atom:CA_3 $atom:CB_1 $atom:CA_5
+    $dihedral:id16 @dihedral:type19 $atom:CIO_1 $atom:CA_3 $atom:CB_1 $atom:CB_2
+    $dihedral:id17 @dihedral:type8 $atom:CA_1 $atom:CA_3 $atom:CIO_1 $atom:O_1
+    $dihedral:id18 @dihedral:type7 $atom:CA_1 $atom:CA_3 $atom:CIO_1 $atom:N_1
+    $dihedral:id19 @dihedral:type14 $atom:CB_1 $atom:CA_3 $atom:CIO_1 $atom:O_1
+    $dihedral:id20 @dihedral:type13 $atom:CB_1 $atom:CA_3 $atom:CIO_1 $atom:N_1
+    $dihedral:id21 @dihedral:type5 $atom:CA_2 $atom:CA_4 $atom:CB_2 $atom:CA_6
+    $dihedral:id22 @dihedral:type6 $atom:CA_2 $atom:CA_4 $atom:CB_2 $atom:CB_1
+    $dihedral:id23 @dihedral:type18 $atom:CIO_3 $atom:CA_4 $atom:CB_2 $atom:CA_6
+    $dihedral:id24 @dihedral:type19 $atom:CIO_3 $atom:CA_4 $atom:CB_2 $atom:CB_1
+    $dihedral:id25 @dihedral:type8 $atom:CA_2 $atom:CA_4 $atom:CIO_3 $atom:O_3
+    $dihedral:id26 @dihedral:type7 $atom:CA_2 $atom:CA_4 $atom:CIO_3 $atom:N_2
+    $dihedral:id27 @dihedral:type14 $atom:CB_2 $atom:CA_4 $atom:CIO_3 $atom:O_3
+    $dihedral:id28 @dihedral:type13 $atom:CB_2 $atom:CA_4 $atom:CIO_3 $atom:N_2
+    $dihedral:id29 @dihedral:type17 $atom:CIO_2 $atom:CA_5 $atom:CA_7 $atom:HA_1
+    $dihedral:id30 @dihedral:type3 $atom:CIO_2 $atom:CA_5 $atom:CA_7 $atom:CA_8
+    $dihedral:id31 @dihedral:type12 $atom:CB_1 $atom:CA_5 $atom:CA_7 $atom:HA_1
+    $dihedral:id32 @dihedral:type2 $atom:CB_1 $atom:CA_5 $atom:CA_7 $atom:CA_8
+    $dihedral:id33 @dihedral:type8 $atom:CA_7 $atom:CA_5 $atom:CIO_2 $atom:O_2
+    $dihedral:id34 @dihedral:type7 $atom:CA_7 $atom:CA_5 $atom:CIO_2 $atom:N_1
+    $dihedral:id35 @dihedral:type14 $atom:CB_1 $atom:CA_5 $atom:CIO_2 $atom:O_2
+    $dihedral:id36 @dihedral:type13 $atom:CB_1 $atom:CA_5 $atom:CIO_2 $atom:N_1
+    $dihedral:id37 @dihedral:type5 $atom:CA_7 $atom:CA_5 $atom:CB_1 $atom:CA_3
+    $dihedral:id38 @dihedral:type6 $atom:CA_7 $atom:CA_5 $atom:CB_1 $atom:CB_2
+    $dihedral:id39 @dihedral:type18 $atom:CIO_2 $atom:CA_5 $atom:CB_1 $atom:CA_3
+    $dihedral:id40 @dihedral:type19 $atom:CIO_2 $atom:CA_5 $atom:CB_1 $atom:CB_2
+    $dihedral:id41 @dihedral:type13 $atom:CB_2 $atom:CA_6 $atom:CIO_4 $atom:N_2
+    $dihedral:id42 @dihedral:type14 $atom:CB_2 $atom:CA_6 $atom:CIO_4 $atom:O_4
+    $dihedral:id43 @dihedral:type7 $atom:CA_8 $atom:CA_6 $atom:CIO_4 $atom:N_2
+    $dihedral:id44 @dihedral:type8 $atom:CA_8 $atom:CA_6 $atom:CIO_4 $atom:O_4
+    $dihedral:id45 @dihedral:type18 $atom:CIO_4 $atom:CA_6 $atom:CB_2 $atom:CA_4
+    $dihedral:id46 @dihedral:type19 $atom:CIO_4 $atom:CA_6 $atom:CB_2 $atom:CB_1
+    $dihedral:id47 @dihedral:type5 $atom:CA_8 $atom:CA_6 $atom:CB_2 $atom:CA_4
+    $dihedral:id48 @dihedral:type6 $atom:CA_8 $atom:CA_6 $atom:CB_2 $atom:CB_1
+    $dihedral:id49 @dihedral:type3 $atom:CIO_4 $atom:CA_6 $atom:CA_8 $atom:CA_7
+    $dihedral:id50 @dihedral:type17 $atom:CIO_4 $atom:CA_6 $atom:CA_8 $atom:HA_2
+    $dihedral:id51 @dihedral:type2 $atom:CB_2 $atom:CA_6 $atom:CA_8 $atom:CA_7
+    $dihedral:id52 @dihedral:type12 $atom:CB_2 $atom:CA_6 $atom:CA_8 $atom:HA_2
+    $dihedral:id53 @dihedral:type1 $atom:CA_5 $atom:CA_7 $atom:CA_8 $atom:CA_6
+    $dihedral:id54 @dihedral:type4 $atom:CA_5 $atom:CA_7 $atom:CA_8 $atom:HA_2
+    $dihedral:id55 @dihedral:type4 $atom:HA_1 $atom:CA_7 $atom:CA_8 $atom:CA_6
+    $dihedral:id56 @dihedral:type31 $atom:HA_1 $atom:CA_7 $atom:CA_8 $atom:HA_2
+    $dihedral:id57 @dihedral:type9 $atom:CA_3 $atom:CB_1 $atom:CB_2 $atom:CA_4
+    $dihedral:id58 @dihedral:type9 $atom:CA_3 $atom:CB_1 $atom:CB_2 $atom:CA_6
+    $dihedral:id59 @dihedral:type9 $atom:CA_5 $atom:CB_1 $atom:CB_2 $atom:CA_4
+    $dihedral:id60 @dihedral:type9 $atom:CA_5 $atom:CB_1 $atom:CB_2 $atom:CA_6
+    $dihedral:id61 @dihedral:type11 $atom:CA_3 $atom:CIO_1 $atom:N_1 $atom:CIO_2
+    $dihedral:id62 @dihedral:type10 $atom:CA_3 $atom:CIO_1 $atom:N_1 $atom:CIN_1
+    $dihedral:id63 @dihedral:type35 $atom:O_1 $atom:CIO_1 $atom:N_1 $atom:CIO_2
+    $dihedral:id64 @dihedral:type34 $atom:O_1 $atom:CIO_1 $atom:N_1 $atom:CIN_1
+    $dihedral:id65 @dihedral:type11 $atom:CA_5 $atom:CIO_2 $atom:N_1 $atom:CIO_1
+    $dihedral:id66 @dihedral:type10 $atom:CA_5 $atom:CIO_2 $atom:N_1 $atom:CIN_1
+    $dihedral:id67 @dihedral:type35 $atom:O_2 $atom:CIO_2 $atom:N_1 $atom:CIO_1
+    $dihedral:id68 @dihedral:type34 $atom:O_2 $atom:CIO_2 $atom:N_1 $atom:CIN_1
+    $dihedral:id69 @dihedral:type11 $atom:CA_4 $atom:CIO_3 $atom:N_2 $atom:CIO_4
+    $dihedral:id70 @dihedral:type10 $atom:CA_4 $atom:CIO_3 $atom:N_2 $atom:CIN_2
+    $dihedral:id71 @dihedral:type35 $atom:O_3 $atom:CIO_3 $atom:N_2 $atom:CIO_4
+    $dihedral:id72 @dihedral:type34 $atom:O_3 $atom:CIO_3 $atom:N_2 $atom:CIN_2
+    $dihedral:id73 @dihedral:type11 $atom:CA_6 $atom:CIO_4 $atom:N_2 $atom:CIO_3
+    $dihedral:id74 @dihedral:type10 $atom:CA_6 $atom:CIO_4 $atom:N_2 $atom:CIN_2
+    $dihedral:id75 @dihedral:type35 $atom:O_4 $atom:CIO_4 $atom:N_2 $atom:CIO_3
+    $dihedral:id76 @dihedral:type34 $atom:O_4 $atom:CIO_4 $atom:N_2 $atom:CIN_2
+    $dihedral:id77 @dihedral:type28 $atom:CIO_1 $atom:N_1 $atom:CIN_1 $atom:H_2
+    $dihedral:id78 @dihedral:type20 $atom:CIO_1 $atom:N_1 $atom:CIN_1 $atom:CL_1
+    $dihedral:id79 @dihedral:type28 $atom:CIO_1 $atom:N_1 $atom:CIN_1 $atom:H_1
+    $dihedral:id80 @dihedral:type28 $atom:CIO_2 $atom:N_1 $atom:CIN_1 $atom:H_2
+    $dihedral:id81 @dihedral:type20 $atom:CIO_2 $atom:N_1 $atom:CIN_1 $atom:CL_1
+    $dihedral:id82 @dihedral:type28 $atom:CIO_2 $atom:N_1 $atom:CIN_1 $atom:H_1
+    $dihedral:id83 @dihedral:type28 $atom:CIO_3 $atom:N_2 $atom:CIN_2 $atom:H_14
+    $dihedral:id84 @dihedral:type28 $atom:CIO_3 $atom:N_2 $atom:CIN_2 $atom:H_15
+    $dihedral:id85 @dihedral:type20 $atom:CIO_3 $atom:N_2 $atom:CIN_2 $atom:CL_5
+    $dihedral:id86 @dihedral:type28 $atom:CIO_4 $atom:N_2 $atom:CIN_2 $atom:H_14
+    $dihedral:id87 @dihedral:type28 $atom:CIO_4 $atom:N_2 $atom:CIN_2 $atom:H_15
+    $dihedral:id88 @dihedral:type20 $atom:CIO_4 $atom:N_2 $atom:CIN_2 $atom:CL_5
+    $dihedral:id89 @dihedral:type32 $atom:N_1 $atom:CIN_1 $atom:CL_1 $atom:CL_2
+    $dihedral:id90 @dihedral:type33 $atom:N_1 $atom:CIN_1 $atom:CL_1 $atom:H_4
+    $dihedral:id91 @dihedral:type33 $atom:N_1 $atom:CIN_1 $atom:CL_1 $atom:H_3
+    $dihedral:id92 @dihedral:type26 $atom:H_2 $atom:CIN_1 $atom:CL_1 $atom:CL_2
+    $dihedral:id93 @dihedral:type27 $atom:H_2 $atom:CIN_1 $atom:CL_1 $atom:H_4
+    $dihedral:id94 @dihedral:type27 $atom:H_2 $atom:CIN_1 $atom:CL_1 $atom:H_3
+    $dihedral:id95 @dihedral:type26 $atom:H_1 $atom:CIN_1 $atom:CL_1 $atom:CL_2
+    $dihedral:id96 @dihedral:type27 $atom:H_1 $atom:CIN_1 $atom:CL_1 $atom:H_4
+    $dihedral:id97 @dihedral:type27 $atom:H_1 $atom:CIN_1 $atom:CL_1 $atom:H_3
+    $dihedral:id98 @dihedral:type32 $atom:N_2 $atom:CIN_2 $atom:CL_5 $atom:CL_6
+    $dihedral:id99 @dihedral:type33 $atom:N_2 $atom:CIN_2 $atom:CL_5 $atom:H_16
+    $dihedral:id100 @dihedral:type33 $atom:N_2 $atom:CIN_2 $atom:CL_5 $atom:H_17
+    $dihedral:id101 @dihedral:type26 $atom:H_14 $atom:CIN_2 $atom:CL_5 $atom:CL_6
+    $dihedral:id102 @dihedral:type27 $atom:H_14 $atom:CIN_2 $atom:CL_5 $atom:H_16
+    $dihedral:id103 @dihedral:type27 $atom:H_14 $atom:CIN_2 $atom:CL_5 $atom:H_17
+    $dihedral:id104 @dihedral:type26 $atom:H_15 $atom:CIN_2 $atom:CL_5 $atom:CL_6
+    $dihedral:id105 @dihedral:type27 $atom:H_15 $atom:CIN_2 $atom:CL_5 $atom:H_16
+    $dihedral:id106 @dihedral:type27 $atom:H_15 $atom:CIN_2 $atom:CL_5 $atom:H_17
+    $dihedral:id107 @dihedral:type16 $atom:CIN_1 $atom:CL_1 $atom:CL_2 $atom:H_5
+    $dihedral:id108 @dihedral:type16 $atom:CIN_1 $atom:CL_1 $atom:CL_2 $atom:H_6
+    $dihedral:id109 @dihedral:type15 $atom:CIN_1 $atom:CL_1 $atom:CL_2 $atom:CL_3
+    $dihedral:id110 @dihedral:type29 $atom:H_4 $atom:CL_1 $atom:CL_2 $atom:H_5
+    $dihedral:id111 @dihedral:type29 $atom:H_4 $atom:CL_1 $atom:CL_2 $atom:H_6
+    $dihedral:id112 @dihedral:type23 $atom:H_4 $atom:CL_1 $atom:CL_2 $atom:CL_3
+    $dihedral:id113 @dihedral:type29 $atom:H_3 $atom:CL_1 $atom:CL_2 $atom:H_5
+    $dihedral:id114 @dihedral:type29 $atom:H_3 $atom:CL_1 $atom:CL_2 $atom:H_6
+    $dihedral:id115 @dihedral:type23 $atom:H_3 $atom:CL_1 $atom:CL_2 $atom:CL_3
+    $dihedral:id116 @dihedral:type21 $atom:CL_1 $atom:CL_2 $atom:CL_3 $atom:CL_4
+    $dihedral:id117 @dihedral:type23 $atom:CL_1 $atom:CL_2 $atom:CL_3 $atom:H_8
+    $dihedral:id118 @dihedral:type23 $atom:CL_1 $atom:CL_2 $atom:CL_3 $atom:H_7
+    $dihedral:id119 @dihedral:type23 $atom:H_5 $atom:CL_2 $atom:CL_3 $atom:CL_4
+    $dihedral:id120 @dihedral:type29 $atom:H_5 $atom:CL_2 $atom:CL_3 $atom:H_8
+    $dihedral:id121 @dihedral:type29 $atom:H_5 $atom:CL_2 $atom:CL_3 $atom:H_7
+    $dihedral:id122 @dihedral:type23 $atom:H_6 $atom:CL_2 $atom:CL_3 $atom:CL_4
+    $dihedral:id123 @dihedral:type29 $atom:H_6 $atom:CL_2 $atom:CL_3 $atom:H_8
+    $dihedral:id124 @dihedral:type29 $atom:H_6 $atom:CL_2 $atom:CL_3 $atom:H_7
+    $dihedral:id125 @dihedral:type22 $atom:CL_2 $atom:CL_3 $atom:CL_4 $atom:CT_1
+    $dihedral:id126 @dihedral:type23 $atom:CL_2 $atom:CL_3 $atom:CL_4 $atom:H_10
+    $dihedral:id127 @dihedral:type23 $atom:CL_2 $atom:CL_3 $atom:CL_4 $atom:H_9
+    $dihedral:id128 @dihedral:type25 $atom:H_8 $atom:CL_3 $atom:CL_4 $atom:CT_1
+    $dihedral:id129 @dihedral:type29 $atom:H_8 $atom:CL_3 $atom:CL_4 $atom:H_10
+    $dihedral:id130 @dihedral:type29 $atom:H_8 $atom:CL_3 $atom:CL_4 $atom:H_9
+    $dihedral:id131 @dihedral:type25 $atom:H_7 $atom:CL_3 $atom:CL_4 $atom:CT_1
+    $dihedral:id132 @dihedral:type29 $atom:H_7 $atom:CL_3 $atom:CL_4 $atom:H_10
+    $dihedral:id133 @dihedral:type29 $atom:H_7 $atom:CL_3 $atom:CL_4 $atom:H_9
+    $dihedral:id134 @dihedral:type24 $atom:CL_3 $atom:CL_4 $atom:CT_1 $atom:H_13
+    $dihedral:id135 @dihedral:type24 $atom:CL_3 $atom:CL_4 $atom:CT_1 $atom:H_11
+    $dihedral:id136 @dihedral:type24 $atom:CL_3 $atom:CL_4 $atom:CT_1 $atom:H_12
+    $dihedral:id137 @dihedral:type30 $atom:H_10 $atom:CL_4 $atom:CT_1 $atom:H_13
+    $dihedral:id138 @dihedral:type30 $atom:H_10 $atom:CL_4 $atom:CT_1 $atom:H_11
+    $dihedral:id139 @dihedral:type30 $atom:H_10 $atom:CL_4 $atom:CT_1 $atom:H_12
+    $dihedral:id140 @dihedral:type30 $atom:H_9 $atom:CL_4 $atom:CT_1 $atom:H_13
+    $dihedral:id141 @dihedral:type30 $atom:H_9 $atom:CL_4 $atom:CT_1 $atom:H_11
+    $dihedral:id142 @dihedral:type30 $atom:H_9 $atom:CL_4 $atom:CT_1 $atom:H_12
+    $dihedral:id143 @dihedral:type16 $atom:CIN_2 $atom:CL_5 $atom:CL_6 $atom:H_19
+    $dihedral:id144 @dihedral:type16 $atom:CIN_2 $atom:CL_5 $atom:CL_6 $atom:H_18
+    $dihedral:id145 @dihedral:type15 $atom:CIN_2 $atom:CL_5 $atom:CL_6 $atom:CL_7
+    $dihedral:id146 @dihedral:type29 $atom:H_16 $atom:CL_5 $atom:CL_6 $atom:H_19
+    $dihedral:id147 @dihedral:type29 $atom:H_16 $atom:CL_5 $atom:CL_6 $atom:H_18
+    $dihedral:id148 @dihedral:type23 $atom:H_16 $atom:CL_5 $atom:CL_6 $atom:CL_7
+    $dihedral:id149 @dihedral:type29 $atom:H_17 $atom:CL_5 $atom:CL_6 $atom:H_19
+    $dihedral:id150 @dihedral:type29 $atom:H_17 $atom:CL_5 $atom:CL_6 $atom:H_18
+    $dihedral:id151 @dihedral:type23 $atom:H_17 $atom:CL_5 $atom:CL_6 $atom:CL_7
+    $dihedral:id152 @dihedral:type23 $atom:CL_5 $atom:CL_6 $atom:CL_7 $atom:H_20
+    $dihedral:id153 @dihedral:type21 $atom:CL_5 $atom:CL_6 $atom:CL_7 $atom:CL_8
+    $dihedral:id154 @dihedral:type23 $atom:CL_5 $atom:CL_6 $atom:CL_7 $atom:H_21
+    $dihedral:id155 @dihedral:type29 $atom:H_19 $atom:CL_6 $atom:CL_7 $atom:H_20
+    $dihedral:id156 @dihedral:type23 $atom:H_19 $atom:CL_6 $atom:CL_7 $atom:CL_8
+    $dihedral:id157 @dihedral:type29 $atom:H_19 $atom:CL_6 $atom:CL_7 $atom:H_21
+    $dihedral:id158 @dihedral:type29 $atom:H_18 $atom:CL_6 $atom:CL_7 $atom:H_20
+    $dihedral:id159 @dihedral:type23 $atom:H_18 $atom:CL_6 $atom:CL_7 $atom:CL_8
+    $dihedral:id160 @dihedral:type29 $atom:H_18 $atom:CL_6 $atom:CL_7 $atom:H_21
+    $dihedral:id161 @dihedral:type22 $atom:CL_6 $atom:CL_7 $atom:CL_8 $atom:CT_2
+    $dihedral:id162 @dihedral:type23 $atom:CL_6 $atom:CL_7 $atom:CL_8 $atom:H_23
+    $dihedral:id163 @dihedral:type23 $atom:CL_6 $atom:CL_7 $atom:CL_8 $atom:H_22
+    $dihedral:id164 @dihedral:type25 $atom:H_20 $atom:CL_7 $atom:CL_8 $atom:CT_2
+    $dihedral:id165 @dihedral:type29 $atom:H_20 $atom:CL_7 $atom:CL_8 $atom:H_23
+    $dihedral:id166 @dihedral:type29 $atom:H_20 $atom:CL_7 $atom:CL_8 $atom:H_22
+    $dihedral:id167 @dihedral:type25 $atom:H_21 $atom:CL_7 $atom:CL_8 $atom:CT_2
+    $dihedral:id168 @dihedral:type29 $atom:H_21 $atom:CL_7 $atom:CL_8 $atom:H_23
+    $dihedral:id169 @dihedral:type29 $atom:H_21 $atom:CL_7 $atom:CL_8 $atom:H_22
+    $dihedral:id170 @dihedral:type24 $atom:CL_7 $atom:CL_8 $atom:CT_2 $atom:H_24
+    $dihedral:id171 @dihedral:type24 $atom:CL_7 $atom:CL_8 $atom:CT_2 $atom:H_25
+    $dihedral:id172 @dihedral:type24 $atom:CL_7 $atom:CL_8 $atom:CT_2 $atom:H_26
+    $dihedral:id173 @dihedral:type30 $atom:H_23 $atom:CL_8 $atom:CT_2 $atom:H_24
+    $dihedral:id174 @dihedral:type30 $atom:H_23 $atom:CL_8 $atom:CT_2 $atom:H_25
+    $dihedral:id175 @dihedral:type30 $atom:H_23 $atom:CL_8 $atom:CT_2 $atom:H_26
+    $dihedral:id176 @dihedral:type30 $atom:H_22 $atom:CL_8 $atom:CT_2 $atom:H_24
+    $dihedral:id177 @dihedral:type30 $atom:H_22 $atom:CL_8 $atom:CT_2 $atom:H_25
+    $dihedral:id178 @dihedral:type30 $atom:H_22 $atom:CL_8 $atom:CT_2 $atom:H_26
+  }
+
+  write("In Settings") {
+    group ndi_c10 type @{atom:CA}:@{atom:O}
+  }
+
+} # end of "ndi_c6_alpha" type definition
