@@ -1,0 +1,14 @@
+import "ndi_c6_h_optimized_gamma_327.lt"  # <- This imports the file defining the single molecule
+
+ndi_c6_gamma_327  = new ndi_c6_gamma_327 [5].move(4.85556, 0.0, 0.0) # a vector
+                 [5].move(-1.59049311 , 6.27318144 , 0.    ) # b vector 
+                 [5].move(-2.02750107, -1.284745 , 19.80161421) # c vector
+# Periodic boundary conditions:
+write_once("Data Boundary") {
+  0.0 24.2778 xlo xhi
+  0.0 31.36590722 ylo yhi
+  0.0 99.00807107 zlo zhi
+ -7.95246554 -10.13750536 -6.42372502 xy xz yz
+}
+
+

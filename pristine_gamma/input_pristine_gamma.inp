@@ -1,0 +1,122 @@
+# LAMMPS provides and excellent documentation. It is important to become familiar with it and,
+# in general, with reading the documentation carefully. Here, I comment briefly the commands of a 
+# simple LAMMPS input, for further details check the documentation. 
+
+# ----------------- Init Section -----------------
+
+atom_style full
+# defines the type of simulation. Here defines an all-atom simulation
+units real
+#  Uses units common in molecular simulations (energy in kcal/mol, distance in Å, time in fs)
+pair_style lj/cut/coul/long 12.0 12.0 
+# Specifies Lennard-Jones (LJ) with a cutoff of 12.0 Å. The coulombic interactions are computed
+# explicitly in a 12 Å region, outside this region are computed in the reciprocal space (see kspace)
+bond_style harmonic
+angle_style harmonic
+# Bonds and angles are described by an harmonic potential
+dihedral_style opls
+# dihedral are trated with the OPLS force field expression for dihedrals, that is a Fourier series
+boundary p p p
+# Uses periodic boundary conditions in all directions.
+
+special_bonds lj/coul 0.0 0.0 0.5
+#Adjusts LJ and Coulombic interactions for 1-2, 1-3, and 1-4 interactions
+#(scales 1-4 interactions by 0.5).
+pair_modify mix geometric
+# Uses geometric mixing rules for LJ parameters between different atom types.
+
+# ----------------- Atom Definition Section -----------------
+read_data "system.pristine_gamma.data"
+include "system.pristine_gamma.in.settings"
+# reads the structure and the force field parameters
+# ----------------- Run Section -----------------
+
+kspace_style pppm 1e-5
+# Uses Particle-Particle Particle-Mesh (PPPM) method for long-range electrostatics
+# with a precision of 1e-5.
+
+# Minimization
+restart 10000 minimization.restart
+# saves a restart file called minimization.restart each 10000 steps
+dump mydmp all custom 50 dump.eq.lammpstrj mol id element xu yu zu
+# saves the trajectory of the minimization each 5000 steps in a dump.eq.lammpstrj file
+# please see the documentation for the " mol id element xu yu zu" settings
+dump_modify mydmp element C C C C C C H H N O pbc yes sort 1 sort id
+# explicitly defines the correspondence between atom types and elements in the printout
+# e.g.: if in the data file we have, in order, the following atom types: CA CB CIO CIN CL CT HA H N O
+# we must specify that to each atom types corresponds an elemets, so we write C C C C C C H H N O
+thermo 50
+# Prints thermodynamic output every 1000 steps.
+thermo_style custom step temp pe etotal press vol density fmax fnorm
+# Specifies thermodynamic properties to be logged.
+neigh_modify every 1 delay 0 check yes
+# specifies the refresh frequency of the neighbour list
+min_style cg
+# algorithm for the minimisation, here Conjugated Gradients
+minimize 0.0 1.0e-5 500000 100000000
+#Runs energy minimization with:
+#    Energy tolerance = 0.0 (not used as a stopping criterion)
+#    Force tolerance = 1.0e-5
+#    Maximum 500000 iterations per line search
+#    Maximum 100000000 iterations
+write_data finish_minim.data
+# writes a data file after the minimisation
+write_restart finish_minim.restart
+# writes a restart file after the minimisation
+undump mydmp
+# tells the program to stop dumping the coordinates to a file
+reset_timestep 0
+# resets the iteration number to 0
+
+
+# NVT at 300 K
+
+
+timestep 2.0
+# Sets the time step to 2 fs.
+restart 100000 nvt.restart
+# Saves a restart file called nvt.restart at each 100000 steps
+fix mynvt all nvt temp 327.0 327.0 $(100.0*dt)
+# Applies the Nose-Hoover thermostat to maintain temperature at 300K. See the documentation for
+# the $(100*dt) parameter
+fix my_shake all shake 0.0001 100 0 b 4 7 13 14
+# constrains the bond lengths of the bond types 4 7 13 and 14 with the SHAKE algorithm
+
+thermo_style custom step temp etotal press vol density cella cellb cellc cellalpha cellbeta cellgamma
+# Specifies thermodynamic properties to be logged.
+thermo 1000
+dump mydmp all custom 1000 dump.nvt327_gammacell.lammpstrj mol element xu yu zu
+dump_modify mydmp element  C C C C C C H H N O pbc yes sort 1 sort id
+run 100000
+# Runs the NVT simulation for 100,000 steps (200 ps).
+write_data finish_nvt327_gammacell.data
+write_restart finish_nvt327_gammacell.restart
+
+unfix mynvt
+unfix my_shake
+undump mydmp
+reset_timestep 0
+
+# NPT Room Temp
+
+
+timestep 2.0
+
+
+restart 100000 npt.restart
+fix my_shake all shake 0.0001 1000 0 b 4 7 13 14
+fix mynpt all npt temp 327.0 327.0 $(100.0*dt) tri 1.0 1.0 $(1000.0*dt)
+# sets the NPT simulation at 300K and 1 atm, with triclinic cell
+
+dump mydmp all custom 1000 dump.npt327_gammacell.lammpstrj mol element xu yu zu
+dump_modify mydmp element  C C C C C C H H N O pbc yes sort 1 sort id
+thermo_style custom step temp etotal press vol density cella cellb cellc cellalpha cellbeta cellgamma
+thermo 1000
+run 10000000
+# runs for 20 ns
+write_data finish_npt327_gammacell.data
+write_restart finish_npt327_gammacell.restart
+
+unfix mynpt
+unfix my_shake
+undump mydmp
