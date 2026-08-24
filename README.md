@@ -26,4 +26,7 @@ The directories containing the files for the simulations of pristine alpha and g
 
 ## Cooling to 300 K
 
+- after_equlibration_at_590K.data = LAMMPS data file obtained after the 590 K equilibration, starting point of the cooling simulation
+- input_cooling.in = input for the cooling simulation with a 30K/ns temperature gradient 
+
 ## Equilibration at 300 K
