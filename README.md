@@ -21,6 +21,9 @@ The directories containing the files for the simulations of pristine alpha and g
 
 ## Equilibration at 590 K
 
+- input_1_ns_590K.in = input the for the 1-ns equilibration at 590 K
+- snapshot_at_590K.restart = LAMMPS restart file saved during the heating cycle. Here it is used to read the starting geometries and velocites for the equilibration
+
 ## Cooling at 300 K
 
 ## Equilibration at 300 K
