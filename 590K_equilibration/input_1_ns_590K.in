@@ -1,0 +1,55 @@
+# ----------------- Init Section -----------------
+
+atom_style full
+# defines the type of simulation. Here defines an all-atom simulation
+units real
+#  Uses units common in molecular simulations (energy in kcal/mol, distance in Å, time in fs)
+pair_style lj/cut/coul/long 12.0 12.0 
+# Specifies Lennard-Jones (LJ) with a cutoff of 12.0 Å. The coulombic interactions are computed
+# explicitly in a 12 Å region, outside this region are computed in the reciprocal space (see kspace)
+bond_style harmonic
+angle_style harmonic
+# Bonds and angles are described by an harmonic potential
+dihedral_style opls
+# dihedral are trated with the OPLS force field expression for dihedrals, that is a Fourier series
+boundary p p p
+# Uses periodic boundary conditions in all directions.
+
+special_bonds lj/coul 0.0 0.0 0.5
+#Adjusts LJ and Coulombic interactions for 1-2, 1-3, and 1-4 interactions
+#(scales 1-4 interactions by 0.5).
+pair_modify mix geometric
+# Uses geometric mixing rules for LJ parameters between different atom types.
+
+# ----------------- Atom Definition Section -----------------
+read_restart "snapshot_at_590K.restart"
+# reads the structure and the force field parameters
+# ----------------- Run Section -----------------
+
+kspace_style pppm 1e-5
+# Uses Particle-Particle Particle-Mesh (PPPM) method for long-range electrostatics
+# with a precision of 1e-5.
+
+# NPT 
+
+reset_timestep 0
+timestep 2.0
+
+
+restart 50000 npt.restart
+fix my_shake all shake 0.0001 1000 0 b 4 7 13 14
+fix mynpt all npt temp 590.0 590.0 $(100.0*dt) tri 1.0 1.0 $(1000.0*dt)
+# sets the NPT simulation at 300K and 1 atm, with triclinic cell
+
+dump mydmp all custom 1000 dump.npt590.lammpstrj mol element xu yu zu
+dump_modify mydmp element  C C C C C C H H N O pbc yes sort 1 sort id
+thermo_style custom step temp etotal press vol density cella cellb cellc cellalpha cellbeta cellgamma
+thermo 1000
+run 500000
+# runs for 1 ns
+write_data finish_npt590.data
+write_restart finish_npt590.restart
+
+unfix mynpt
+unfix my_shake
+undump mydmp
