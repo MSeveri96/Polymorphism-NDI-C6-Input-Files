@@ -30,3 +30,5 @@ The directories containing the files for the simulations of pristine alpha and g
 - input_cooling.in = input for the cooling simulation with a 30K/ns temperature gradient 
 
 ## Equilibration at 300 K
+- input_equilibration_300K.in = input for the 500 ns equilibration of the system after cooling
+- after_cooling.data = last frame of the cooling simulation, here used as starting configuration
